@@ -30,8 +30,9 @@ print('------------------')
 for k,v in lst:
     cols = os.get_terminal_size()[0] - 13
     if v < cols:
-        b = '■'*v
+        b = '\033[0;34;47m'+('■'*v)
+        b = b+'\033[0m'
     else:
-        b = '■'*cols
-        b = b+'//■■'
+        b = '\033[0;34;47m'+('■'*cols)
+        b = b+'\033[0m'+'//'+'\033[0;34;47m'+'■■'+'\033[0m'
     print(' %2s %3d %s' % (k,v,b) )
